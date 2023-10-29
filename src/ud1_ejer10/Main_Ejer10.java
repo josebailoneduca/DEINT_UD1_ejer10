@@ -52,5 +52,9 @@ public class Main_Ejer10 {
             }
         });
     }
+
+    public static void salir() {
+        System.exit(0);
+    }
     
 }

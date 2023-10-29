@@ -7,6 +7,8 @@ Lista de paquetes:
 
 package ud1_ejer10.gui;
 
+import ud1_ejer10.Main_Ejer10;
+
 /**
  *
  * @author Jose Javier Bailon Ortiz
@@ -37,7 +39,8 @@ public class Ejercicio10VentanaPrincipal extends javax.swing.JFrame {
         lbiUsuario = new javax.swing.JLabel();
         lbUsuario = new javax.swing.JLabel();
         MenuSuepriorjMenuBar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menuArchivo = new javax.swing.JMenu();
+        menuItemSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,8 +66,17 @@ public class Ejercicio10VentanaPrincipal extends javax.swing.JFrame {
         panelUsuarioActual.add(lbiUsuario);
         panelUsuarioActual.add(lbUsuario);
 
-        jMenu1.setText("File");
-        MenuSuepriorjMenuBar.add(jMenu1);
+        menuArchivo.setText("Archivo");
+
+        menuItemSalir.setText("Salir");
+        menuItemSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemSalirActionPerformed(evt);
+            }
+        });
+        menuArchivo.add(menuItemSalir);
+
+        MenuSuepriorjMenuBar.add(menuArchivo);
 
         jMenu2.setText("Edit");
         MenuSuepriorjMenuBar.add(jMenu2);
@@ -95,6 +107,10 @@ public class Ejercicio10VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
+        Main_Ejer10.salir();
+    }//GEN-LAST:event_menuItemSalirActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -102,12 +118,13 @@ public class Ejercicio10VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnDefinirUsuario;
     private javax.swing.JTextField inputApellidos;
     private javax.swing.JTextField inputNombre;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JLabel lbUsuario;
     private javax.swing.JLabel lbiApellidos;
     private javax.swing.JLabel lbiNombre;
     private javax.swing.JLabel lbiUsuario;
+    private javax.swing.JMenu menuArchivo;
+    private javax.swing.JMenuItem menuItemSalir;
     private javax.swing.JPanel panelInputUsuario;
     private javax.swing.JPanel panelUsuarioActual;
     // End of variables declaration//GEN-END:variables
