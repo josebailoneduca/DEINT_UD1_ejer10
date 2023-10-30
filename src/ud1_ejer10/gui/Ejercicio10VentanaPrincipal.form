@@ -105,8 +105,10 @@
         <Component class="javax.swing.JButton" name="btnDefinirUsuario">
           <Properties>
             <Property name="text" type="java.lang.String" value="Definir Usuario"/>
-            <Property name="actionCommand" type="java.lang.String" value="Definir Usuario"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDefinirUsuarioActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

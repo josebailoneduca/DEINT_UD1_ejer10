@@ -4,7 +4,7 @@ LICENCIA JOSE JAVIER BO
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
 Lista de paquetes:
  */
-package ud1_ejer10;
+package ud1_ejer10.logica;
 
 import ud1_ejer10.gui.Ejercicio10VentanaPrincipal;
 
@@ -15,6 +15,7 @@ import ud1_ejer10.gui.Ejercicio10VentanaPrincipal;
 public class Main_Ejer10 {
     private static Ejercicio10VentanaPrincipal vp;
     
+    public static String nombreUsuario="";
     
     /**
      * @param args the command line arguments

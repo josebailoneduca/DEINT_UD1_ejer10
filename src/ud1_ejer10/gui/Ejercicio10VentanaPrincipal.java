@@ -7,7 +7,7 @@ Lista de paquetes:
 
 package ud1_ejer10.gui;
 
-import ud1_ejer10.Main_Ejer10;
+import ud1_ejer10.logica.Main_Ejer10;
 
 /**
  *
@@ -59,7 +59,11 @@ public class Ejercicio10VentanaPrincipal extends javax.swing.JFrame {
         panelInputUsuario.add(inputApellidos);
 
         btnDefinirUsuario.setText("Definir Usuario");
-        btnDefinirUsuario.setActionCommand("Definir Usuario");
+        btnDefinirUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDefinirUsuarioActionPerformed(evt);
+            }
+        });
         panelInputUsuario.add(btnDefinirUsuario);
 
         lbiUsuario.setText("Usuario actual:");
@@ -110,6 +114,9 @@ public class Ejercicio10VentanaPrincipal extends javax.swing.JFrame {
     private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
         Main_Ejer10.salir();
     }//GEN-LAST:event_menuItemSalirActionPerformed
+
+    private void btnDefinirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefinirUsuarioActionPerformed
+     }//GEN-LAST:event_btnDefinirUsuarioActionPerformed
 
 
 
