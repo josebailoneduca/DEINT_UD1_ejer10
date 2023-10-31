@@ -6,7 +6,7 @@ Lista de paquetes:
  */
 package ud1_ejer10.logica;
 
-import ud1_ejer10.gui.Ejercicio10VentanaPrincipal;
+import ud1_ejer10.gui.ventanas.Ejercicio10VentanaPrincipal;
 
 /**
  *

@@ -5,7 +5,7 @@ LICENCIA JOSE JAVIER BO
 Lista de paquetes:
  */
 
-package ud1_ejer10.gui;
+package ud1_ejer10.gui.ventanas;
 
 import ud1_ejer10.logica.Main_Ejer10;
 
