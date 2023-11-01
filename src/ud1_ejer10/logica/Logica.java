@@ -14,7 +14,6 @@ import ud1_ejer10.dto.DatosLogin;
 import ud1_ejer10.dto.Encuesta;
 import ud1_ejer10.dto.Hijo;
 import ud1_ejer10.gui.ventanas.VPrincipal;
-import ud1_ejer10.gui.ventanas.VRegistroAcceso;
 
 /**
  *

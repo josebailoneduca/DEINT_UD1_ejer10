@@ -24,7 +24,7 @@ public class DMinisterioEncuesta extends javax.swing.JDialog {
     /** Creates new form DEncuesta */
     public DMinisterioEncuesta(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
+        initComponents(); 
     }
 
     /** This method is called from within the constructor to
