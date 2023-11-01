@@ -68,6 +68,11 @@ public class VPrincipal extends javax.swing.JFrame {
         panelMenuPrincipal.add(btnIniciaMezcladora);
 
         btnIniciaAppMinisterio.setText("App Ministerio");
+        btnIniciaAppMinisterio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciaAppMinisterioActionPerformed(evt);
+            }
+        });
         panelMenuPrincipal.add(btnIniciaAppMinisterio);
 
         btnRegistroDerportivo.setText("Registro Deportivo");
@@ -116,6 +121,11 @@ public class VPrincipal extends javax.swing.JFrame {
         if (!Logica.imitadorInicio(getUsuario()))
             mostrarErrorUsuario();
     }//GEN-LAST:event_btnImitadorActionPerformed
+
+    private void btnIniciaAppMinisterioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciaAppMinisterioActionPerformed
+        if (!Logica.appMinisterioInicio(getUsuario()))
+            mostrarErrorUsuario();
+    }//GEN-LAST:event_btnIniciaAppMinisterioActionPerformed
 
     /**
      * Devuelve el nombre compuesto del usuario

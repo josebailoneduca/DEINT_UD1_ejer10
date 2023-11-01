@@ -19,7 +19,12 @@ public class VImitador extends javax.swing.JFrame {
      */
     public VImitador(String nombreUsuario) {
         initComponents();
-        this.setTitle("Mezcladora de nombres - Usuario: "+ nombreUsuario);
+        initPropio(nombreUsuario);
+   }
+
+    private void initPropio(String nombreUsuario) {
+        this.setTitle("Mezcladora de nombres - Usuario: " + nombreUsuario);
+        this.addWindowListener(new WindowListenerEjer10());
     }
 
     /**
@@ -58,7 +63,7 @@ public class VImitador extends javax.swing.JFrame {
         copyComboBox = new javax.swing.JComboBox<>();
         copySpinner = new javax.swing.JSpinner();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnVolverAlMenu.setText("Volver al menú principal");
         btnVolverAlMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -349,7 +354,6 @@ public class VImitador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverAlMenuActionPerformed
 
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolverAlMenu;
     private javax.swing.ButtonGroup copyButtonGroup;
@@ -378,4 +382,5 @@ public class VImitador extends javax.swing.JFrame {
     private javax.swing.JTextField origTexto;
     private javax.swing.JPanel panelVolverAlMenu;
     // End of variables declaration//GEN-END:variables
+ 
 }

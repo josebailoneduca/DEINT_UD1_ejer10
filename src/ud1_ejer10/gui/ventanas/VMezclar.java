@@ -28,10 +28,14 @@ public class VMezclar extends javax.swing.JFrame {
      */
     public VMezclar(String nombreUsuario) {
         initComponents();
+        initPropio(nombreUsuario);
+
+    }
+    private void initPropio(String nombreUsuario) {
         this.setTitle("Mezcladora de nombres - Usuario: "+ nombreUsuario);
         this.resetInterface();
+        this.addWindowListener(new WindowListenerEjer10());
     }
-
     /*
      * Metodos propios 
      */
@@ -119,6 +123,7 @@ public class VMezclar extends javax.swing.JFrame {
         panelVolverAlMenu = new javax.swing.JPanel();
         btnVolverAlMenu = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pantalla Main");
         setAlwaysOnTop(true);
         setResizable(false);

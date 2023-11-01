@@ -6,11 +6,14 @@ Lista de paquetes:
  */
 package ud1_ejer10.logica;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import ud1_ejer10.dto.Encuesta;
 import ud1_ejer10.gui.ventanas.VImitador;
 import ud1_ejer10.gui.ventanas.VMezclar;
+import ud1_ejer10.gui.ventanas.VMinisterio;
 import ud1_ejer10.gui.ventanas.VPrincipal;
 
 /**
@@ -21,7 +24,8 @@ public class Logica {
 
     private static VPrincipal ventanaPrincipal;
     
-    
+    //encuestas de la app de ministerio
+    private static ArrayList<Encuesta> encuestas = new ArrayList<Encuesta>();
     
     //METODOS DE MEZCLAR ######################################################
     /**
@@ -149,23 +153,48 @@ public class Logica {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public static void iniciaAppMinisterio(String usuarioPrincipal) {
-        System.out.println("app ministerio");
+    //METODOS DE APP MINISTERIO ######################################################
+       
+    public static boolean appMinisterioInicio(String usuarioPrincipal) {
+                //comprobar validez de usuario
+        if (!nombreUsuarioValido(usuarioPrincipal)){
+            return false;
+        }
+        
+        //crear ventana de app de mezcla        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                VMinisterio ventanaMinisterio = new VMinisterio(usuarioPrincipal);
+                ventanaMinisterio.setLocationRelativeTo(null);
+                ventanaMinisterio.setVisible(true);
+            }
+       });
+        //ocultar ventana principal
+       ventanaPrincipal.setVisible(false);
+       return true;
     }
 
+    /**
+     * Devuelve el listado de encuestas
+     * @return 
+     */
+    public static ArrayList<Encuesta> getEncuestas() {
+        return encuestas;
+    }
+    
+        /**
+     * Agrega una encuesta a la lista
+     * @param encuesta 
+     */
+    public static void addEncuesta(Encuesta encuesta){
+        encuestas.add(encuesta);
+    }
+    
+    
+    
+        //METODOS DE REGISTRO DEPORTIVO ######################################################
+    
     public static void iniciaRegistroDeportivo(String usuarioPrincipal) {
         System.out.println("registro deportivo");
     }
@@ -254,6 +283,7 @@ public class Logica {
     public static void volverAlMenuPrincipal() {
         ventanaPrincipal.setVisible(true);
     }
+ 
 
 
 
