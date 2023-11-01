@@ -76,6 +76,11 @@ public class VPrincipal extends javax.swing.JFrame {
         panelMenuPrincipal.add(btnIniciaAppMinisterio);
 
         btnRegistroDerportivo.setText("Registro Deportivo");
+        btnRegistroDerportivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroDerportivoActionPerformed(evt);
+            }
+        });
         panelMenuPrincipal.add(btnRegistroDerportivo);
 
         btnImitador.setText("Imitador");
@@ -113,28 +118,52 @@ public class VPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciaMezcladoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciaMezcladoraActionPerformed
-        if (!Logica.mezclarInicio(getUsuario()))
+        if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
             mostrarErrorUsuario();
+        else {
+            String usuarioPrincipal = inputNombre.getText() + " " + inputApellidos.getText();
+            VMezclar ventanaMezclar = new VMezclar(usuarioPrincipal);
+            ventanaMezclar.setLocationRelativeTo(null);
+            ventanaMezclar.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btnIniciaMezcladoraActionPerformed
 
     private void btnImitadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImitadorActionPerformed
-        if (!Logica.imitadorInicio(getUsuario()))
+         if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
             mostrarErrorUsuario();
+        else {
+            String usuarioPrincipal = inputNombre.getText() + " " + inputApellidos.getText();
+            VImitador ventanaImitador = new VImitador(usuarioPrincipal);
+            ventanaImitador.setLocationRelativeTo(null);
+            ventanaImitador.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btnImitadorActionPerformed
 
     private void btnIniciaAppMinisterioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciaAppMinisterioActionPerformed
-        if (!Logica.appMinisterioInicio(getUsuario()))
+         if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
             mostrarErrorUsuario();
+        else {
+            String usuarioPrincipal = inputNombre.getText() + " " + inputApellidos.getText();
+            VMinisterio ventanaMinisterio = new VMinisterio(usuarioPrincipal);
+            ventanaMinisterio.setLocationRelativeTo(null);
+            ventanaMinisterio.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btnIniciaAppMinisterioActionPerformed
 
-    /**
-     * Devuelve el nombre compuesto del usuario
-     *
-     * @return El nombre compuesto
-     */
-    private String getUsuario() {
-        return inputNombre.getText() + " " + inputApellidos.getText();
-    }
+    private void btnRegistroDerportivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroDerportivoActionPerformed
+         if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
+            mostrarErrorUsuario();
+        else {
+            String nombreUsuarioTitulo = inputNombre.getText() + " " + inputApellidos.getText();
+            VRegistroAcceso ventanaRegistroAcceso = new VRegistroAcceso(nombreUsuarioTitulo);
+            ventanaRegistroAcceso.setLocationRelativeTo(null);
+            ventanaRegistroAcceso.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_btnRegistroDerportivoActionPerformed
 
     private void mostrarErrorUsuario() {
         JOptionPane.showMessageDialog(this, "No puede dejar el nombre de usuario vacio", "Error", JOptionPane.ERROR_MESSAGE);

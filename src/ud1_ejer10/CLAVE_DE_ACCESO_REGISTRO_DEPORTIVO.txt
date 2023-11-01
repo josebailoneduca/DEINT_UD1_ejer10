@@ -1,0 +1,7 @@
+Clave de acceso para el registro deportivo:
+
+Usuario:
+admin
+
+Contraseña:
+1234

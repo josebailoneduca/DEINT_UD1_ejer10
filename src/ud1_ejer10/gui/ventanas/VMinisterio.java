@@ -25,13 +25,18 @@ public class VMinisterio extends javax.swing.JFrame {
     /**
      * Creates new form VPrincipal
      */
-    public VMinisterio(String nombreUsuario) {
+    public VMinisterio(String nombreUsuarioTitulo) {
         initComponents();
-        initPropio(nombreUsuario);
-       
+        initPropio(nombreUsuarioTitulo);
     }
-        private void initPropio(String nombreUsuario) {
-        this.setTitle("App Ministerio - Usuario: " + nombreUsuario);
+    
+    
+    /**
+     * Gestion de la inicializacion
+     * @param nombreUsuarioTitulo Nombre de usuario para poner como titulo de la ventana
+     */
+    private void initPropio(String nombreUsuarioTitulo) {
+        this.setTitle("App Ministerio - Usuario: " + nombreUsuarioTitulo);
         this.addWindowListener(new WindowListenerEjer10());
          actualizarTabla();
     }

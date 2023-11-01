@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import ud1_ejer10.dto.DatosLogin;
 import ud1_ejer10.dto.Encuesta;
-import ud1_ejer10.gui.ventanas.VImitador;
-import ud1_ejer10.gui.ventanas.VMezclar;
-import ud1_ejer10.gui.ventanas.VMinisterio;
+import ud1_ejer10.dto.Hijo;
 import ud1_ejer10.gui.ventanas.VPrincipal;
+import ud1_ejer10.gui.ventanas.VRegistroAcceso;
 
 /**
  *
@@ -22,37 +22,29 @@ import ud1_ejer10.gui.ventanas.VPrincipal;
  */
 public class Logica {
 
+    
+    //ATRIBUTOS
+    
+    //Referencia a la ventana principal
     private static VPrincipal ventanaPrincipal;
     
-    //encuestas de la app de ministerio
+    //Lista de encuestas de la app de ministerio
     private static ArrayList<Encuesta> encuestas = new ArrayList<Encuesta>();
     
+    
+    
+    
+    //DATOS DE LOGIN en app de registro deportivo admin,1234
+    private static DatosLogin datosLogin=new DatosLogin("admin","1234");
+    
+    
+     // Lista de hijos de la matricula
+    private static ArrayList<Hijo> hijos = new ArrayList<Hijo>();
+    
+    
+    
     //METODOS DE MEZCLAR ######################################################
-    /**
-     * Iniciar la ventana de mezclar
-     * @param usuarioPrincipal Usuario a poner en el titulo de la ventana
-     * @return  true si el es nombre de usuario valido false si no lo es
-     */
-    public static boolean mezclarInicio(String usuarioPrincipal) {
-        //comprobar validez de usuario
-        if (!nombreUsuarioValido(usuarioPrincipal)){
-            return false;
-        }
-        
-        //crear ventana de app de mezcla        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-               VMezclar ventanaMezclar = new VMezclar(usuarioPrincipal);
-                ventanaMezclar.setLocationRelativeTo(null);
-                ventanaMezclar.setVisible(true);
-            }
-       });
-        //ocultar ventana principal
-       ventanaPrincipal.setVisible(false);
-       return true;
-    }
- 
+  
     
         /**
      * Mezcla los nombres 4 veces y los manda a la pantalla principal
@@ -60,19 +52,19 @@ public class Logica {
      * @param nombre1 Primer nombre a usar en la mezcla
      * @param nombre2 Segundo nombre a usar en la mezcla
      */
-    public static String mezclarMezcla(String nombre1, String nombre2) {
+    public static String mezclar(String nombre1, String nombre2) {
         //validacion
-        if (!mezclarValidar(nombre1) || !mezclarValidar(nombre2)) {
+        if (!validarNombresMezcla(nombre1) || !validarNombresMezcla(nombre2)) {
             
             return null;
         }
         //Genera un resultado con 4 nombres mezclados
 
         String resultado
-                = mezclarMezclaNombres(nombre1, nombre2) + ", "
-                + mezclarMezclaNombres(nombre1, nombre2) + ", "
-                + mezclarMezclaNombres(nombre1, nombre2) + ", "
-                + mezclarMezclaNombres(nombre1, nombre2);
+                = mezclarNombres(nombre1, nombre2) + ", "
+                + mezclarNombres(nombre1, nombre2) + ", "
+                + mezclarNombres(nombre1, nombre2) + ", "
+                + mezclarNombres(nombre1, nombre2);
 
         return resultado;
     }
@@ -85,7 +77,7 @@ public class Logica {
      * @param nombre2 Segundo nombre
      * @return Mezcla de los nombres
      */
-    private static String mezclarMezclaNombres(String nombre1, String nombre2) {
+    private static String mezclarNombres(String nombre1, String nombre2) {
         //preparacion de datos para la mezcla
         nombre1 = nombre1.toLowerCase();
         nombre2 = nombre2.toLowerCase();
@@ -137,7 +129,7 @@ public class Logica {
      * @param nombre El nombre a validar
      * @return True si no es nulo y tiene 4 o mas caracteres. False en otro caso
      */
-    private static boolean mezclarValidar(String nombre) {
+    private static boolean validarNombresMezcla(String nombre) {
         if (nombre == null || nombre.length() < 4) 
             return false;
         return true;
@@ -154,26 +146,7 @@ public class Logica {
     
     
     //METODOS DE APP MINISTERIO ######################################################
-       
-    public static boolean appMinisterioInicio(String usuarioPrincipal) {
-                //comprobar validez de usuario
-        if (!nombreUsuarioValido(usuarioPrincipal)){
-            return false;
-        }
-        
-        //crear ventana de app de mezcla        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                VMinisterio ventanaMinisterio = new VMinisterio(usuarioPrincipal);
-                ventanaMinisterio.setLocationRelativeTo(null);
-                ventanaMinisterio.setVisible(true);
-            }
-       });
-        //ocultar ventana principal
-       ventanaPrincipal.setVisible(false);
-       return true;
-    }
+  
 
     /**
      * Devuelve el listado de encuestas
@@ -195,41 +168,66 @@ public class Logica {
     
         //METODOS DE REGISTRO DEPORTIVO ######################################################
     
-    public static void iniciaRegistroDeportivo(String usuarioPrincipal) {
-        System.out.println("registro deportivo");
+     /**
+     * Agrega un hijo a la matricula
+     * @param hijo Hijo a agregar
+     */
+    public static void addHijo(Hijo hijo){
+        hijos.add(hijo);
     }
-
-    
-    
-    
-    
-    
-     //METODOS DE IMITADOR ######################################################
-    
-    public static boolean imitadorInicio(String usuarioPrincipal) {
-               //comprobar validez de usuario
-        if (!nombreUsuarioValido(usuarioPrincipal)){
-            return false;
-        }
-        
-        //crear ventana de app de mezcla        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                VImitador ventanaImitador = new VImitador(usuarioPrincipal);
-                ventanaImitador.setLocationRelativeTo(null);
-                ventanaImitador.setVisible(true);
-            }
-       });
-        //ocultar ventana principal
-       ventanaPrincipal.setVisible(false);
-       return true;
-    }
-
-    
-    
     
     /**
+     * Devuelve la lista de hijos de la matricula
+     * @return La lista de hijos
+     */
+    public static List<Hijo> getListaHijos() {
+        return hijos;
+    }
+    
+    /**
+     * Comprueba que unos datos de login son correctos
+     * @param dLogin Los datos del login
+     * @return True si son correctos, False si no lo son
+     */
+    public static boolean intentarLoginRegistroDeportivo(DatosLogin dLogin){
+        boolean usuarioOk=Logica.datosLogin.getUsuario().equals(dLogin.getUsuario());
+        boolean passwordOk=Logica.datosLogin.getPassword().equals(dLogin.getPassword());
+        return  (usuarioOk && passwordOk);            
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //METODOS LOGICA MENU PRINCIPAL#################################################
+    
+    /**
+     * Devuelve si el nombre de usuario es valido comprobando que no sea vacio
+     * ni compuesto solo por espacios
+     * @param nombre el nombre a comprobar
+     * @param apellidos el apellido a comprobar
+     * @return True si no es nulo y tiene algun caracter no vacio
+     */
+    public static boolean nombreUsuarioValidoParaTitulo(String nombre, String apellidos) {
+        return (nombre!=null && nombre.strip().length() >0) && 
+                (apellidos!=null && apellidos.strip().length() >0);
+    }
+
+    /**
+     * Acciones a realizar al volver al menu principal
+     */
+    public static void volverAlMenuPrincipal() {
+        ventanaPrincipal.setVisible(true);
+    }
+ 
+
+
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -268,23 +266,4 @@ public class Logica {
             }
         });
     }
-
- 
-
-    /**
-     * Devuelve si el nombre de usuario es valido
-     * @param nombreUsuario el nombre a comprobar
-     * @return True si no es nulo y tiene algun caracter no vacio
-     */
-    private static boolean nombreUsuarioValido(String usuarioPrincipal) {
-        return (usuarioPrincipal!=null && usuarioPrincipal.strip().length() >0);
-    }
-
-    public static void volverAlMenuPrincipal() {
-        ventanaPrincipal.setVisible(true);
-    }
- 
-
-
-
 }

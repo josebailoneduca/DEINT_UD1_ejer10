@@ -12,7 +12,8 @@ import java.awt.event.WindowListener;
 import ud1_ejer10.logica.Logica;
 
 /**
- *
+ *Window listener para ejecutar la vuelta al menu principal cuando se cierre la ventana
+ * 
  * @author Jose Javier Bailon Ortiz
  */
 public class WindowListenerEjer10 implements WindowListener{
@@ -24,8 +25,6 @@ public class WindowListenerEjer10 implements WindowListener{
 
     @Override
     public void windowOpened(WindowEvent e) {
-      
-        
     }
 
     @Override

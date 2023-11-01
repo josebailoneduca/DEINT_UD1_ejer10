@@ -17,13 +17,16 @@ public class VImitador extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public VImitador(String nombreUsuario) {
+    public VImitador(String nombreUsuarioTitulo) {
         initComponents();
-        initPropio(nombreUsuario);
+        initPropio(nombreUsuarioTitulo);
    }
-
-    private void initPropio(String nombreUsuario) {
-        this.setTitle("Mezcladora de nombres - Usuario: " + nombreUsuario);
+    /**
+     * Gestion de la inicializacion
+     * @param nombreUsuarioTitulo Nombre de usuario para poner como titulo de la ventana
+     */
+    private void initPropio(String nombreUsuarioTitulo) {
+        this.setTitle("Imitador - Usuario: " + nombreUsuarioTitulo);
         this.addWindowListener(new WindowListenerEjer10());
     }
 
@@ -64,6 +67,7 @@ public class VImitador extends javax.swing.JFrame {
         copySpinner = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         btnVolverAlMenu.setText("Volver al menú principal");
         btnVolverAlMenu.addActionListener(new java.awt.event.ActionListener() {

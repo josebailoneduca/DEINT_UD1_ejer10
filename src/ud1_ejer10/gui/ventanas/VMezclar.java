@@ -12,30 +12,36 @@ import javax.swing.JOptionPane;
 import ud1_ejer10.logica.Logica;
 
 /**
- * Pantalla principal de la aplicacion. 
- * Contiene:
- *  - dos campos para nombres
- *  - boton mezclar
- *  - boton reiniciar
- * 
+ * Pantalla principal de la aplicacion. Contiene: - dos campos para nombres -
+ * boton mezclar - boton reiniciar
+ *
  * @author Jose Javier Bailon Ortiz
  */
 public class VMezclar extends javax.swing.JFrame {
 
     /**
      * Pantalla principal
-     * @param mezcladoraNombres  Referencia a la logica de negocio(controlador)
+     *
+     * @param mezcladoraNombres Referencia a la logica de negocio(controlador)
      */
-    public VMezclar(String nombreUsuario) {
+    public VMezclar(String nombreUsuarioTitulo) {
         initComponents();
-        initPropio(nombreUsuario);
+        initPropio(nombreUsuarioTitulo);
 
     }
-    private void initPropio(String nombreUsuario) {
-        this.setTitle("Mezcladora de nombres - Usuario: "+ nombreUsuario);
+
+    /**
+     * Gestion de la inicializacion
+     *
+     * @param nombreUsuarioTitulo Nombre de usuario para poner como titulo de la
+     * ventana
+     */
+    private void initPropio(String nombreUsuarioTitulo) {
+        this.setTitle("Mezcladora de nombres - Usuario: " + nombreUsuarioTitulo);
         this.resetInterface();
         this.addWindowListener(new WindowListenerEjer10());
     }
+
     /*
      * Metodos propios 
      */
@@ -44,7 +50,7 @@ public class VMezclar extends javax.swing.JFrame {
      */
     public void avisoError() {
         //creacion y muestra de la pantlla de error
-        JOptionPane.showMessageDialog(this, "Los nombres de la pareja deben contener como mínimo 4 letras, si no, no habrá amor.","Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Los nombres de la pareja deben contener como mínimo 4 letras, si no, no habrá amor.", "Error", JOptionPane.ERROR_MESSAGE);
         //desactivar la parte de la ventana referente a la muestra de resultado
         desactivarResultado();
     }
@@ -241,11 +247,11 @@ public class VMezclar extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(lbNombre1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(inputNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lbNombre2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMezclar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -319,6 +325,7 @@ public class VMezclar extends javax.swing.JFrame {
 
     /**
      * Acciiones ejecutadas al pulsar el boton Mezclar
+     *
      * @param evt Evento recibido
      */
     private void btnMezclarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMezclarActionPerformed
@@ -326,16 +333,17 @@ public class VMezclar extends javax.swing.JFrame {
         String nombre1 = inputNombre1.getText();
         String nombre2 = inputNombre2.getText();
         // enviarlos a logica negocio
-        String mezcla = Logica.mezclarMezcla(nombre1, nombre2);
+        String mezcla = Logica.mezclar(nombre1, nombre2);
         if (mezcla == null)
             avisoError();
-         else
+        else
             activarResultado(mezcla);
     }//GEN-LAST:event_btnMezclarActionPerformed
 
     /**
      * Accion ejecutada al pulsar el boton Reiniciar
-     * @param evt  Evento recibido
+     *
+     * @param evt Evento recibido
      */
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
         this.resetInterface();
@@ -346,15 +354,14 @@ public class VMezclar extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVolverAlMenuActionPerformed
 
-
     //muestra la hora en la ventana principal
-    private void ponerHora(){
+    private void ponerHora() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
-        
+
         this.lbHora.setText(sdf.format(date));
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMezclar;
     private javax.swing.JButton btnReiniciar;
