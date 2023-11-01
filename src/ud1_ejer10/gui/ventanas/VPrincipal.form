@@ -1,38 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Menu class="javax.swing.JMenuBar" name="MenuSuepriorjMenuBar">
-      <SubComponents>
-        <Menu class="javax.swing.JMenu" name="menuArchivo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Archivo"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItemSalir">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Salir"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemSalirActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
-          </Properties>
-        </Menu>
-      </SubComponents>
-    </Menu>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="MenuSuepriorjMenuBar"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -53,11 +26,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="panelUsuarioActual" max="32767" attributes="0"/>
-                  <Component id="panelInputUsuario" pref="444" max="32767" attributes="0"/>
-              </Group>
+              <Component id="panelInputUsuario" pref="352" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+              <Component id="panelMenuPrincipal" min="-2" pref="201" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,9 +41,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="panelInputUsuario" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="panelUsuarioActual" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelMenuPrincipal" min="-2" pref="168" max="-2" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,26 +77,41 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnDefinirUsuario">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Definir Usuario"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDefinirUsuarioActionPerformed"/>
-          </Events>
-        </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="panelUsuarioActual">
+    <Container class="javax.swing.JPanel" name="panelMenuPrincipal">
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="1"/>
+        <Property name="rows" type="int" value="4"/>
+        <Property name="verticalGap" type="int" value="10"/>
+      </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lbiUsuario">
+        <Component class="javax.swing.JButton" name="btnIniciaMezcladora">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Usuario actual:"/>
+            <Property name="text" type="java.lang.String" value="Mezcladora de nombres"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciaMezcladoraActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnIniciaAppMinisterio">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="App Ministerio"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbUsuario">
+        <Component class="javax.swing.JButton" name="btnRegistroDerportivo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registro Deportivo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnImitador">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Imitador"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImitadorActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
