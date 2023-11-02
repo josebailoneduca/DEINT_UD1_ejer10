@@ -349,6 +349,10 @@ public class VMezclar extends javax.swing.JFrame {
         this.resetInterface();
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
+    /**
+     * Boton de volver al menu principal
+     * @param evt 
+     */
     private void btnVolverAlMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAlMenuActionPerformed
         Logica.volverAlMenuPrincipal();
         this.dispose();

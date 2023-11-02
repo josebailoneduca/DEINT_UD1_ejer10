@@ -149,7 +149,7 @@ public class Logica {
 
     /**
      * Devuelve el listado de encuestas
-     * @return 
+     * @return Las encuestas
      */
     public static ArrayList<Encuesta> getEncuestas() {
         return encuestas;
@@ -157,7 +157,7 @@ public class Logica {
     
         /**
      * Agrega una encuesta a la lista
-     * @param encuesta 
+     * @param encuesta Encuesta a agregar
      */
     public static void addEncuesta(Encuesta encuesta){
         encuestas.add(encuesta);

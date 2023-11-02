@@ -6,8 +6,13 @@ Lista de paquetes:
  */
 package ud1_ejer10.gui.ventanas;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
+import javax.swing.table.TableRowSorter;
 import ud1_ejer10.gui.dialogos.DAddHijo;
 import ud1_ejer10.gui.tableModels.HijosTableModel;
 import ud1_ejer10.logica.Logica;
@@ -46,10 +51,24 @@ public class VRegistro extends javax.swing.JFrame {
      * Refresca la tabla de hijos con los datos de hijos que tiene la Logica
      */
     private void refrescarTabla() {
+        
+        //crear el modelo de tabla
+        HijosTableModel htm = new HijosTableModel(Logica.getListaHijos());
         //Establecer el modelo para la tabla       
-        this.tblHijos.setModel(new HijosTableModel(Logica.getListaHijos()));
+        this.tblHijos.setModel(htm);
         //Hacer que la tabla no sea modificable
         this.tblHijos.setEnabled(false);
+        
+        //sorter
+        TableRowSorter<HijosTableModel> rowSorter = new TableRowSorter<>(htm);
+        this.tblHijos.setRowSorter(rowSorter);
+        
+        //ordenacion por defecto inicial
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>();
+        sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        rowSorter.setSortKeys(sortKeys);
+        
+        
         //poner la tabla visible
         mostrarTabla();
     }//end refrescarTabla

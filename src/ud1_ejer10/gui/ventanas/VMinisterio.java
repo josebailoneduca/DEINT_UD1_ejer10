@@ -4,11 +4,12 @@
  */
 package ud1_ejer10.gui.ventanas;
 
-import java.awt.Image;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.table.DefaultTableModel;
-import ud1_ejer10.dto.Encuesta;
+import javax.swing.RowSorter.SortKey;
+import javax.swing.SortOrder;
+import javax.swing.table.TableRowSorter;
 import ud1_ejer10.gui.dialogos.DMinisterioAcercaDe;
 import ud1_ejer10.gui.dialogos.DMinisterioEncuesta;
 import ud1_ejer10.gui.tableModels.EncuestasTableModel;
@@ -47,11 +48,20 @@ public class VMinisterio extends javax.swing.JFrame {
      * necesarios
      */
     private void actualizarTabla(){
-        
+        //crear modelo
+        EncuestasTableModel etm=new EncuestasTableModel(Logica.getEncuestas());
         //establecer el modelo como modelo de la tabla
-        this.tabla.setModel(new EncuestasTableModel(Logica.getEncuestas()));
+        this.tabla.setModel(etm);
         //definir la tabla como no editable
         this.tabla.setEnabled(false);
+        
+        TableRowSorter<EncuestasTableModel> rowSorter = new TableRowSorter<>(etm);
+        this.tabla.setRowSorter(rowSorter);
+        
+        //ordenacion por defecto inicial
+        List<SortKey> sortKeys = new ArrayList<>();
+        sortKeys.add(new SortKey(0, SortOrder.ASCENDING));
+        rowSorter.setSortKeys(sortKeys);
         
     }
 
