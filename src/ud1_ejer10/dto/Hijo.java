@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
+ * DTO para almacenar los datos de un hijo
  * @author Jose Javier BO
  */
 public class Hijo {

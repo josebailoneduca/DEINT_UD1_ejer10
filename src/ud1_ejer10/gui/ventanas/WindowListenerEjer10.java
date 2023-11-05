@@ -13,7 +13,7 @@ import ud1_ejer10.logica.Logica;
 
 /**
  *Window listener para ejecutar la vuelta al menu principal cuando se cierre la ventana
- * 
+ * En el evento windowClosed ordena a la logica volver al menu principal.
  * @author Jose Javier Bailon Ortiz
  */
 public class WindowListenerEjer10 implements WindowListener{

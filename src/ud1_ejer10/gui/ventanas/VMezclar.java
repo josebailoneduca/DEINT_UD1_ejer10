@@ -22,7 +22,7 @@ public class VMezclar extends javax.swing.JFrame {
     /**
      * Pantalla principal
      *
-     * @param mezcladoraNombres Referencia a la logica de negocio(controlador)
+     * @param nombreUsuarioTitulo Nombre a usar en el titulo
      */
     public VMezclar(String nombreUsuarioTitulo) {
         initComponents();
@@ -31,10 +31,12 @@ public class VMezclar extends javax.swing.JFrame {
     }
 
     /**
-     * Gestion de la inicializacion
-     *
-     * @param nombreUsuarioTitulo Nombre de usuario para poner como titulo de la
-     * ventana
+     * Gestion de la inicializacion. Pone el titulo a la ventana e inicializa
+     * el windowsListener que gestiona la aparicion del menu principal cuando esta ventana se cierra
+     * 
+     * Tambien resetea la interfaz a su punto inicial
+     * 
+     * @param nombreUsuarioTitulo Nombre de usuario para poner como titulo de la ventana
      */
     private void initPropio(String nombreUsuarioTitulo) {
         this.setTitle("Mezcladora de nombres - Usuario: " + nombreUsuarioTitulo);
@@ -112,6 +114,9 @@ public class VMezclar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelVolverAlMenu = new javax.swing.JPanel();
+        btnVolverAlMenu = new javax.swing.JButton();
+        panelAplicacion = new javax.swing.JPanel();
         panelSuperior = new javax.swing.JPanel();
         lbTitulo = new javax.swing.JLabel();
         panelInferior = new javax.swing.JPanel();
@@ -126,13 +131,34 @@ public class VMezclar extends javax.swing.JFrame {
         btnReiniciar = new javax.swing.JButton();
         lbSonLas = new javax.swing.JLabel();
         lbHora = new javax.swing.JLabel();
-        panelVolverAlMenu = new javax.swing.JPanel();
-        btnVolverAlMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pantalla Main");
         setAlwaysOnTop(true);
         setResizable(false);
+
+        btnVolverAlMenu.setText("Volver al menú principal");
+        btnVolverAlMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverAlMenuActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelVolverAlMenuLayout = new javax.swing.GroupLayout(panelVolverAlMenu);
+        panelVolverAlMenu.setLayout(panelVolverAlMenuLayout);
+        panelVolverAlMenuLayout.setHorizontalGroup(
+            panelVolverAlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVolverAlMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVolverAlMenu)
+                .addGap(14, 14, 14))
+        );
+        panelVolverAlMenuLayout.setVerticalGroup(
+            panelVolverAlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVolverAlMenuLayout.createSequentialGroup()
+                .addComponent(btnVolverAlMenu)
+                .addGap(0, 7, Short.MAX_VALUE))
+        );
 
         panelSuperior.setBackground(new java.awt.Color(0, 102, 51));
 
@@ -145,21 +171,17 @@ public class VMezclar extends javax.swing.JFrame {
         panelSuperior.setLayout(panelSuperiorLayout);
         panelSuperiorLayout.setHorizontalGroup(
             panelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(panelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSuperiorLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(panelSuperiorLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                .addGap(44, 44, 44))
         );
         panelSuperiorLayout.setVerticalGroup(
             panelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 67, Short.MAX_VALUE)
-            .addGroup(panelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelSuperiorLayout.createSequentialGroup()
-                    .addGap(14, 14, 14)
-                    .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(14, Short.MAX_VALUE)))
+            .addGroup(panelSuperiorLayout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         lbNombre1.setText("Ingresa el primer nombre:");
@@ -212,14 +234,6 @@ public class VMezclar extends javax.swing.JFrame {
         panelInferiorLayout.setHorizontalGroup(
             panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInferiorLayout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addGroup(panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbResultado)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInferiorLayout.createSequentialGroup()
-                        .addComponent(btnMezclar)
-                        .addGap(68, 68, 68)))
-                .addContainerGap(155, Short.MAX_VALUE))
-            .addGroup(panelInferiorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelInferiorLayout.createSequentialGroup()
@@ -232,14 +246,16 @@ public class VMezclar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnReiniciar)
                         .addGap(21, 21, 21))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInferiorLayout.createSequentialGroup()
+            .addGroup(panelInferiorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbResultado)
                     .addComponent(inputNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inputNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbNombre1)
-                    .addComponent(lbNombre2))
-                .addGap(145, 145, 145))
+                    .addComponent(lbNombre2)
+                    .addComponent(btnMezclar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelInferiorLayout.setVerticalGroup(
             panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,87 +274,60 @@ public class VMezclar extends javax.swing.JFrame {
                 .addComponent(lbResultado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPaneTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReiniciar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(lbSonLas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnVolverAlMenu.setText("Volver al menú principal");
-        btnVolverAlMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverAlMenuActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelVolverAlMenuLayout = new javax.swing.GroupLayout(panelVolverAlMenu);
-        panelVolverAlMenu.setLayout(panelVolverAlMenuLayout);
-        panelVolverAlMenuLayout.setHorizontalGroup(
-            panelVolverAlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVolverAlMenuLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnVolverAlMenu))
+        javax.swing.GroupLayout panelAplicacionLayout = new javax.swing.GroupLayout(panelAplicacion);
+        panelAplicacion.setLayout(panelAplicacionLayout);
+        panelAplicacionLayout.setHorizontalGroup(
+            panelAplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelSuperior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelInferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        panelVolverAlMenuLayout.setVerticalGroup(
-            panelVolverAlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVolverAlMenuLayout.createSequentialGroup()
-                .addGap(0, 7, Short.MAX_VALUE)
-                .addComponent(btnVolverAlMenu))
+        panelAplicacionLayout.setVerticalGroup(
+            panelAplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAplicacionLayout.createSequentialGroup()
+                .addComponent(panelSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelInferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelInferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelSuperior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelVolverAlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(panelVolverAlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelVolverAlMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelInferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panelAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNombre1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputNombre1ActionPerformed
-
-    private void inputNombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNombre2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputNombre2ActionPerformed
-
     /**
-     * Acciiones ejecutadas al pulsar el boton Mezclar
-     *
-     * @param evt Evento recibido
+     * Boton de volver al menu principal
+     * @param evt 
      */
-    private void btnMezclarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMezclarActionPerformed
-        // recoger datos
-        String nombre1 = inputNombre1.getText();
-        String nombre2 = inputNombre2.getText();
-        // enviarlos a logica negocio
-        String mezcla = Logica.mezclar(nombre1, nombre2);
-        if (mezcla == null)
-            avisoError();
-        else
-            activarResultado(mezcla);
-    }//GEN-LAST:event_btnMezclarActionPerformed
+    private void btnVolverAlMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAlMenuActionPerformed
+        Logica.volverAlMenuPrincipal();
+        this.dispose();
+    }//GEN-LAST:event_btnVolverAlMenuActionPerformed
 
     /**
      * Accion ejecutada al pulsar el boton Reiniciar
@@ -350,13 +339,29 @@ public class VMezclar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     /**
-     * Boton de volver al menu principal
-     * @param evt 
+     * Acciones ejecutadas al pulsar el boton Mezclar
+     *
+     * @param evt Evento recibido
      */
-    private void btnVolverAlMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAlMenuActionPerformed
-        Logica.volverAlMenuPrincipal();
-        this.dispose();
-    }//GEN-LAST:event_btnVolverAlMenuActionPerformed
+    private void btnMezclarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMezclarActionPerformed
+        // recoger datos
+        String nombre1 = inputNombre1.getText();
+        String nombre2 = inputNombre2.getText();
+        // enviarlos a logica negocio
+        String mezcla = Logica.mezclar(nombre1, nombre2);
+        if (mezcla == null)
+        avisoError();
+        else
+        activarResultado(mezcla);
+    }//GEN-LAST:event_btnMezclarActionPerformed
+
+    private void inputNombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNombre2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputNombre2ActionPerformed
+
+    private void inputNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNombre1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputNombre1ActionPerformed
 
     //muestra la hora en la ventana principal
     private void ponerHora() {
@@ -379,6 +384,7 @@ public class VMezclar extends javax.swing.JFrame {
     private javax.swing.JLabel lbResultado;
     private javax.swing.JLabel lbSonLas;
     private javax.swing.JLabel lbTitulo;
+    private javax.swing.JPanel panelAplicacion;
     private javax.swing.JPanel panelInferior;
     private javax.swing.JPanel panelSuperior;
     private javax.swing.JPanel panelVolverAlMenu;

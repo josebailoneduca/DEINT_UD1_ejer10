@@ -16,7 +16,10 @@ import ud1_ejer10.logica.Logica;
 public class VPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form Ejercicio10VentanaPrincipal
+     * Ventana principal de la aplicacion. Tiene dos campos para recoger nombre
+     * y apellidos y varios botones para abrir una ventana aparte con diferentes
+     * aplicaciones. Le suministra el nombre y apellido recogidos a la logica
+     * para que al lanzar las otras aplicaciones les pase ese nombre y apellidos
      */
     public VPrincipal() {
         initComponents();
@@ -97,12 +100,12 @@ public class VPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelInputUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                .addComponent(panelInputUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(panelMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(panelMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,6 +120,13 @@ public class VPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * click del boton iniciar mezclador. Comprueba que se hayan cumplimentado
+     * los campos d enombre y apellido y si se han rellenado lanza la ventana de
+     * la aplicacion
+     *
+     * @param evt
+     */
     private void btnIniciaMezcladoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciaMezcladoraActionPerformed
         if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
             mostrarErrorUsuario();
@@ -129,8 +139,15 @@ public class VPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnIniciaMezcladoraActionPerformed
 
+    /**
+     * click del boton iniciar imitador. Comprueba que se hayan cumplimentado
+     * los campos d enombre y apellido y si se han rellenado lanza la ventana de
+     * la aplicacion
+     *
+     * @param evt
+     */
     private void btnImitadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImitadorActionPerformed
-         if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
+        if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
             mostrarErrorUsuario();
         else {
             String usuarioPrincipal = inputNombre.getText() + " " + inputApellidos.getText();
@@ -141,8 +158,15 @@ public class VPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnImitadorActionPerformed
 
+    /**
+     * click del boton iniciar app ministerio. Comprueba que se hayan
+     * cumplimentado los campos d enombre y apellido y si se han rellenado lanza
+     * la ventana de la aplicacion
+     *
+     * @param evt
+     */
     private void btnIniciaAppMinisterioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciaAppMinisterioActionPerformed
-         if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
+        if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
             mostrarErrorUsuario();
         else {
             String usuarioPrincipal = inputNombre.getText() + " " + inputApellidos.getText();
@@ -153,8 +177,15 @@ public class VPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnIniciaAppMinisterioActionPerformed
 
+    /**
+     * click del boton iniciar registro deportivo. Comprueba que se hayan cumplimentado
+     * los campos d enombre y apellido y si se han rellenado lanza la ventana de
+     * la aplicacion
+     *
+     * @param evt
+     */
     private void btnRegistroDerportivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroDerportivoActionPerformed
-         if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
+        if (!Logica.nombreUsuarioValidoParaTitulo(inputNombre.getText(), inputApellidos.getText()))
             mostrarErrorUsuario();
         else {
             String nombreUsuarioTitulo = inputNombre.getText() + " " + inputApellidos.getText();
@@ -165,8 +196,11 @@ public class VPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRegistroDerportivoActionPerformed
 
+    /**
+     * Muestra un error avisando de que se deben rellenar los campos de nombre y apellidos
+     */
     private void mostrarErrorUsuario() {
-        JOptionPane.showMessageDialog(this, "No puede dejar el nombre de usuario vacio", "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "No puede dejar el nombre y/o apellidos vacio", "Error", JOptionPane.ERROR_MESSAGE);
 
     }
 

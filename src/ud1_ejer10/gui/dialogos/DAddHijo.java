@@ -27,6 +27,15 @@ public class DAddHijo extends javax.swing.JDialog {
         initComponents();
     }
 
+     /**
+     * Muestra un error con el mensaje suministrado
+     * @param msg  El mensaje a mostrar
+     */
+    private void muestraError(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -216,6 +225,12 @@ public class DAddHijo extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNombreActionPerformed
 
+    /**
+     * Accon del boton btnAdd. Recopilas los datos del formulario, comprueba su validez
+     * y los envia a la logica de negocio.
+     * En caso de haber algun error en los datos lo avisa mostrando un error
+     * @param evt 
+     */
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         //validacion
         String nombre = inputNombre.getText();
@@ -260,11 +275,5 @@ public class DAddHijo extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     
-    /**
-     * Muestra un error con el mensaje suministrado
-     * @param msg  El mensaje a mostrar
-     */
-    private void muestraError(String msg) {
-        JOptionPane.showMessageDialog(this, msg, "Error", JOptionPane.ERROR_MESSAGE);
-    }
+
 }

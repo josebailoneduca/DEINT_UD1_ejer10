@@ -8,7 +8,7 @@ Lista de paquetes:
 package ud1_ejer10.dto;
 
 /**
- * Almacena los datos de login
+ * DTO par almacenar los datos de login
  * @author Jose Javier Bailón Ortiz
  */
 public class DatosLogin {

@@ -6,7 +6,7 @@ package ud1_ejer10.gui.dialogos;
 
 /**
  * Dialogo Acerda De...
- * @author Bailon
+ * @author Jose Javier BO
  */
 public class DMinisterioAcercaDe extends javax.swing.JDialog {
 

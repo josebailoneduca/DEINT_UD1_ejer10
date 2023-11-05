@@ -65,6 +65,7 @@ public class DMinisterioEncuesta extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Realizar encuesta");
+        setResizable(false);
 
         lbProfesion.setText("Profesión:");
 
@@ -319,6 +320,7 @@ public class DMinisterioEncuesta extends javax.swing.JDialog {
      * @param evt 
      */
     private void inputPracticaDeporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPracticaDeporteActionPerformed
+        //habilitar y deshabilitar la seleccion de deportes segun el checkbox inputPracticaDeporte
         if (this.inputPracticaDeporte.isSelected())
             this.inputDeportes.setEnabled(true);
         else{

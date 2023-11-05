@@ -12,7 +12,8 @@ import javax.swing.table.AbstractTableModel;
 import ud1_ejer10.dto.Encuesta;
 
 /**
- *
+ * Tablemodel para la tabla de encuestas
+ * 
  * @author Jose Javier Bailon Ortiz
  */
 public class EncuestasTableModel extends AbstractTableModel {

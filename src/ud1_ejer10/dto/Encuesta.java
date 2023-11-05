@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * DTO para almacenar los datos de una encuesta 
  *
- * @author Bailon
+ * @author Jose Javier BO
  */
 public class Encuesta {
 

@@ -18,8 +18,10 @@ import ud1_ejer10.gui.tableModels.HijosTableModel;
 import ud1_ejer10.logica.Logica;
 
 /**
- * Ventana de registro de matriculas
- *
+ * Ventana de registro de matriculas. Contiene unos campos basicos y aparte
+ * se pueden ir agregando hijos. Para agregar hijos abre una ventana secundaria
+ * y los hijos que se vayan introduciendo desde esta se mostraran en una tabla.
+ * 
  * @author Jose Javier BO
  */
 public class VRegistro extends javax.swing.JFrame {
@@ -36,7 +38,10 @@ public class VRegistro extends javax.swing.JFrame {
 
         
     /**
-     * Gestion de la inicializacion
+     * Gestion de la inicializacion. Pone el titulo a la ventana e inicializa
+     * el windowsListener que gestiona la aparicion del menu principal cuando esta ventana se cierra
+     * Lanza la inicializacino de la tabla de hijos
+     * 
      * @param nombreUsuarioTitulo Nombre de usuario para poner como titulo de la ventana
      */
     private void initPropio(String nombreUsuarioTitulo) {
@@ -44,7 +49,7 @@ public class VRegistro extends javax.swing.JFrame {
         this.addWindowListener(new WindowListenerEjer10());
         //inicializa la tabla de hijos
         refrescarTabla();
-        //la oculta
+        //ocultar tabla
         ocultarTabla();
     }
     /**
@@ -83,7 +88,10 @@ public class VRegistro extends javax.swing.JFrame {
     private void initComponents() {
 
         btnGrpTurno = new javax.swing.ButtonGroup();
-        panelGeneral = new javax.swing.JPanel();
+        panelVolverMenu = new javax.swing.JPanel();
+        btnVolverMenuPrincipal = new javax.swing.JButton();
+        sepVolverMenuPrincipal = new javax.swing.JSeparator();
+        panelAplicacion = new javax.swing.JPanel();
         lbTitulo = new javax.swing.JLabel();
         panelInterno = new javax.swing.JPanel();
         lbDeporte = new javax.swing.JLabel();
@@ -104,11 +112,43 @@ public class VRegistro extends javax.swing.JFrame {
         scrollTblHijos = new javax.swing.JScrollPane();
         tblHijos = new javax.swing.JTable();
         btnMatricular = new javax.swing.JButton();
-        btnVolverMenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro");
         setResizable(false);
+
+        btnVolverMenuPrincipal.setText("VOLVER A MENÚ PRINCIPAL");
+        btnVolverMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverMenuPrincipalActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelVolverMenuLayout = new javax.swing.GroupLayout(panelVolverMenu);
+        panelVolverMenu.setLayout(panelVolverMenuLayout);
+        panelVolverMenuLayout.setHorizontalGroup(
+            panelVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVolverMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVolverMenuLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVolverMenuPrincipal))
+                    .addComponent(sepVolverMenuPrincipal))
+                .addContainerGap())
+        );
+        panelVolverMenuLayout.setVerticalGroup(
+            panelVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVolverMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVolverMenuPrincipal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sepVolverMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelAplicacion.setMinimumSize(new java.awt.Dimension(450, 441));
+        panelAplicacion.setName(""); // NOI18N
 
         lbTitulo.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -252,7 +292,7 @@ public class VRegistro extends javax.swing.JFrame {
                 .addGroup(panelInternoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputTarde)
                     .addComponent(inputAnual))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(separador, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelHijos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -266,39 +306,27 @@ public class VRegistro extends javax.swing.JFrame {
             }
         });
 
-        btnVolverMenuPrincipal.setText("VOLVER A MENÚ PRINCIPAL");
-        btnVolverMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverMenuPrincipalActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
-        panelGeneral.setLayout(panelGeneralLayout);
-        panelGeneralLayout.setHorizontalGroup(
-            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGeneralLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelAplicacionLayout = new javax.swing.GroupLayout(panelAplicacion);
+        panelAplicacion.setLayout(panelAplicacionLayout);
+        panelAplicacionLayout.setHorizontalGroup(
+            panelAplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAplicacionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelInterno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelGeneralLayout.createSequentialGroup()
-                        .addComponent(btnMatricular, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVolverMenuPrincipal)))
+                .addGroup(panelAplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelInterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMatricular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        panelGeneralLayout.setVerticalGroup(
-            panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGeneralLayout.createSequentialGroup()
+        panelAplicacionLayout.setVerticalGroup(
+            panelAplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAplicacionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelInterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMatricular)
-                    .addComponent(btnVolverMenuPrincipal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnMatricular, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -306,22 +334,26 @@ public class VRegistro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(panelVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelAplicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        panelAplicacion.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Accion del boton de matricular
-     *
-     * @param evt
+     * Accion del boton de matricular. Hace una validacion de datos y muestra un 
+     * mensaje de error o exito dependiendo de la validación.
+     * @param evt 
      */
     private void btnMatricularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatricularActionPerformed
         //recoger datos
@@ -343,9 +375,17 @@ public class VRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMatricularActionPerformed
 
     /**
-     * Accion del boton de agregar hijo
-     *
-     * @param evt
+     * Click del boton para volver al menu principal
+     * @param evt 
+     */
+    private void btnVolverMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenuPrincipalActionPerformed
+        Logica.volverAlMenuPrincipal();
+        this.dispose();
+    }//GEN-LAST:event_btnVolverMenuPrincipalActionPerformed
+
+    /**
+     * Accion del boton de agregar hijo. Abre un dialogo desde el que agregarlo.
+     * @param evt 
      */
     private void btnAddHijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHijoActionPerformed
         //Creación dialogo de agregar hijo
@@ -369,11 +409,6 @@ public class VRegistro extends javax.swing.JFrame {
             mostrarTabla();
         }
     }//GEN-LAST:event_btnToggleTablaActionPerformed
-
-    private void btnVolverMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenuPrincipalActionPerformed
-        Logica.volverAlMenuPrincipal();
-        this.dispose();
-    }//GEN-LAST:event_btnVolverMenuPrincipalActionPerformed
 
     //METODOS PROPIOS
     /**
@@ -427,11 +462,13 @@ public class VRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel lbRenovacion;
     private javax.swing.JLabel lbTitulo;
     private javax.swing.JLabel lbTurno;
-    private javax.swing.JPanel panelGeneral;
+    private javax.swing.JPanel panelAplicacion;
     private javax.swing.JPanel panelHijos;
     private javax.swing.JPanel panelInterno;
     private javax.swing.JPanel panelTabla;
+    private javax.swing.JPanel panelVolverMenu;
     private javax.swing.JScrollPane scrollTblHijos;
+    private javax.swing.JSeparator sepVolverMenuPrincipal;
     private javax.swing.JSeparator separador;
     private javax.swing.JTable tblHijos;
     // End of variables declaration//GEN-END:variables

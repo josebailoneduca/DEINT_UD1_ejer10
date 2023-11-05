@@ -18,8 +18,8 @@ import ud1_ejer10.logica.Logica;
  
 
 /**
- * Jframe VPrincipal con la ventana principal de la aplicacion, el menu y la tabla de encuestas introducidas
- * @author Bailon
+ * Ventana de la aplicacion de ministerio, el menu y la tabla de encuestas introducidas
+ * @author Jose Javier BO
  */
 public class VMinisterio extends javax.swing.JFrame {
 
@@ -32,8 +32,12 @@ public class VMinisterio extends javax.swing.JFrame {
     }
     
     
+
     /**
-     * Gestion de la inicializacion
+     * Gestion de la inicializacion. Pone el titulo a la ventana e inicializa
+     * el windowsListener que gestiona la aparicion del menu principal cuando esta ventana se cierra
+     * 
+     * Lanza la inicializacion de la tabla de encuestas
      * @param nombreUsuarioTitulo Nombre de usuario para poner como titulo de la ventana
      */
     private void initPropio(String nombreUsuarioTitulo) {
@@ -54,7 +58,7 @@ public class VMinisterio extends javax.swing.JFrame {
         this.tabla.setModel(etm);
         //definir la tabla como no editable
         this.tabla.setEnabled(false);
-        
+        //crear sorter
         TableRowSorter<EncuestasTableModel> rowSorter = new TableRowSorter<>(etm);
         this.tabla.setRowSorter(rowSorter);
         
@@ -74,6 +78,8 @@ public class VMinisterio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelBotonVolver = new javax.swing.JPanel();
+        btnVolverMenú = new javax.swing.JButton();
         panelTabla = new javax.swing.JPanel();
         scrollTabla = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
@@ -89,6 +95,30 @@ public class VMinisterio extends javax.swing.JFrame {
         setTitle("Encuestas");
         setIconImage(new ImageIcon("./src/ud1_ejer5/gui/img/logo.png").getImage());
 
+        btnVolverMenú.setText("Volver a menú principal");
+        btnVolverMenú.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverMenúActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelBotonVolverLayout = new javax.swing.GroupLayout(panelBotonVolver);
+        panelBotonVolver.setLayout(panelBotonVolverLayout);
+        panelBotonVolverLayout.setHorizontalGroup(
+            panelBotonVolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonVolverLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVolverMenú)
+                .addContainerGap())
+        );
+        panelBotonVolverLayout.setVerticalGroup(
+            panelBotonVolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonVolverLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVolverMenú)
+                .addContainerGap())
+        );
+
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -103,11 +133,14 @@ public class VMinisterio extends javax.swing.JFrame {
         panelTabla.setLayout(panelTablaLayout);
         panelTablaLayout.setHorizontalGroup(
             panelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
+            .addComponent(scrollTabla, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
         );
         panelTablaLayout.setVerticalGroup(
             panelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTablaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         menuArchivo.setMnemonic('a');
@@ -162,11 +195,19 @@ public class VMinisterio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelBotonVolver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(panelBotonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -204,16 +245,23 @@ public class VMinisterio extends javax.swing.JFrame {
         this.actualizarTabla();
     }//GEN-LAST:event_menuItemRealizarEncuestaActionPerformed
 
+    private void btnVolverMenúActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenúActionPerformed
+        Logica.volverAlMenuPrincipal();
+        this.dispose();
+    }//GEN-LAST:event_btnVolverMenúActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JButton btnVolverMenú;
     private javax.swing.JMenu menuArchivo;
     private javax.swing.JMenu menuAyuda;
     private javax.swing.JMenu menuEncuesta;
     private javax.swing.JMenuItem menuItemAcercaDe;
     private javax.swing.JMenuItem menuItemRealizarEncuesta;
     private javax.swing.JMenuItem menuItemSalir;
+    private javax.swing.JPanel panelBotonVolver;
     private javax.swing.JPanel panelTabla;
     private javax.swing.JScrollPane scrollTabla;
     private javax.swing.JTable tabla;

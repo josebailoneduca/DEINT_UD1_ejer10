@@ -12,7 +12,7 @@ import javax.swing.table.AbstractTableModel;
 import ud1_ejer10.dto.Hijo;
 
 /**
- *
+ * Tablemodel para los hijos del registro deportivo
  * @author Jose Javier Bailon Ortiz
  */
 public class HijosTableModel extends AbstractTableModel {
