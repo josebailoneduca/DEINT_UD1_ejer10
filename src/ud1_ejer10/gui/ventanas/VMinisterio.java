@@ -43,7 +43,7 @@ public class VMinisterio extends javax.swing.JFrame {
     private void initPropio(String nombreUsuarioTitulo) {
         this.setTitle("App Ministerio - Usuario: " + nombreUsuarioTitulo);
         this.addWindowListener(new WindowListenerEjer10());
-         actualizarTabla();
+         inicializarTabla();
     }
     
     
@@ -51,7 +51,7 @@ public class VMinisterio extends javax.swing.JFrame {
      * Actualiza la tabla conformando su modelo e introduciendo los datos
      * necesarios
      */
-    private void actualizarTabla(){
+    private void inicializarTabla(){
         //crear modelo
         EncuestasTableModel etm=new EncuestasTableModel(Logica.getEncuestas());
         //establecer el modelo como modelo de la tabla
@@ -242,7 +242,8 @@ public class VMinisterio extends javax.swing.JFrame {
         dEncuesta.setLocationRelativeTo(this);
         dEncuesta.setVisible(true);
         //actualizar los datos de la tabla tras el cierre del dialogo de encuesta
-        this.actualizarTabla();
+        EncuestasTableModel etm=(EncuestasTableModel) tabla.getModel();
+        etm.fireTableDataChanged();
     }//GEN-LAST:event_menuItemRealizarEncuestaActionPerformed
 
     private void btnVolverMenúActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenúActionPerformed

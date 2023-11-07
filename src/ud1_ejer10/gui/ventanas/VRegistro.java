@@ -48,14 +48,14 @@ public class VRegistro extends javax.swing.JFrame {
         this.setTitle("Registro deportivo - Usuario: " + nombreUsuarioTitulo);
         this.addWindowListener(new WindowListenerEjer10());
         //inicializa la tabla de hijos
-        refrescarTabla();
+        configurarTabla();
         //ocultar tabla
         ocultarTabla();
     }
     /**
      * Refresca la tabla de hijos con los datos de hijos que tiene la Logica
      */
-    private void refrescarTabla() {
+    private void configurarTabla() {
         
         //crear el modelo de tabla
         HijosTableModel htm = new HijosTableModel(Logica.getListaHijos());
@@ -74,8 +74,7 @@ public class VRegistro extends javax.swing.JFrame {
         rowSorter.setSortKeys(sortKeys);
         
         
-        //poner la tabla visible
-        mostrarTabla();
+
     }//end refrescarTabla
 
     /**
@@ -393,7 +392,10 @@ public class VRegistro extends javax.swing.JFrame {
         dHijo.setLocationRelativeTo(null);
         dHijo.setVisible(true);
         //actualizar tabla. Se ejecuta al terminar el dialogo modal de agregar hijo
-        refrescarTabla();
+        HijosTableModel tm = (HijosTableModel) tblHijos.getModel();
+        tm.fireTableDataChanged();
+        //poner la tabla visible
+        mostrarTabla();
     }//GEN-LAST:event_btnAddHijoActionPerformed
 
     /**
